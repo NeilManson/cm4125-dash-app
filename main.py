@@ -106,7 +106,7 @@ app.layout = html.Div([
                             ],
                             multi=False,
                             value="2015",
-                            #style={'width': "40%"}
+                            style={'color':'black'}
                         ),
                         dcc.Dropdown(id="age",
                             options=[
@@ -119,7 +119,7 @@ app.layout = html.Div([
                             ],
                             multi=False,
                             value="18-21",
-                            #style={'width': "50%"}
+                            style={'color':'black'}
                         )
                     ],
                     className='bg-dark text-white'
