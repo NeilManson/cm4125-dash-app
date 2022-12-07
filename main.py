@@ -92,7 +92,7 @@ app.layout = html.Div([
                     ),
                 dbc.Col(
                     [
-                        html.H2('Distribution of Continuous Variable'), 
+                        html.H2('Gender Pay Settings'), 
                         dcc.Dropdown(id="year",
                             options=[
                                 {"label": "2015", "value": "2015"},
