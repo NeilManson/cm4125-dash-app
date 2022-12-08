@@ -39,16 +39,6 @@ df_second_homes = pd.read_csv("second_homes.csv")
 df_second_homes= df_second_homes.replace(',','', regex=True)
 df_second_homes = df_second_homes.apply(pd.to_numeric)
 
-card = dbc.Card(
-    dbc.CardBody(
-        [
-            html.H4("Title", id="card-title"),
-            html.H2("100", id="card-value"),
-            html.P("Description", id="card-description")
-        ]
-    )
-)
-
 house_salary_fig = make_subplots(specs=[[{"secondary_y": True}]])
 
 house_salary_fig.add_trace(go.Scatter(x=df_average_house_and_salary["Year"], y=df_average_house_and_salary["Average house price adj. by inflation (pounds)"], name="average house price"), secondary_y=False,)
@@ -72,10 +62,7 @@ second_homes_prices_fig.add_trace(go.Scatter(x=df_average_house_uk["Year"], y=df
 
 app.layout = html.Div([
     dbc.Row([
-       html.H1('UK housing statistics', style={'text-align':'center'}),
-
-       
-                    
+       html.H1('UK housing statistics', style={'text-align':'center'}),              
     ]
     ),
     dbc.Row(
@@ -192,8 +179,6 @@ app.layout = html.Div([
      Input(component_id="age", component_property="value")]
 )
 def update_graphs(year_input, age_input):
-    # print(year_input)
-    # print(age_input)
     df = gender_pay_dfs[year_input].copy()
     df_age = df.loc[df["age"].str.contains(age_input)]
     fig1 = px.pie(df_age, names="gender", values="mean")
